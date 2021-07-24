@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+/* colors */
+    --color_moderate_violet: hsl(263, 55%, 52%);
+    --color_dark_grayish_blue: hsl(217, 19%, 35%);
+    --color_dark_blackish_blue: hsl(219, 29%, 14%);
+    --color_white: hsl(0, 0%, 100%);
+    --color_light_gray: hsl(0, 0%, 81%);
+    --color_light_grayish_blue: hsl(210, 46%, 95%);
+}
+
+body{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 13px;
+    background-color: var(--color_light_grayish_blue);
+}
+
+/*
+** Define the grid in mobile size
+*/
+
+.grid {
+    display: grid;
+    width: 328px;
+    grid-gap: 24px 30px;
+    margin: 71px auto 71px;
+}
+
+/*
+** Define the card
+*/
+
+.card{
+    border-radius: 8px;
+}
+
+
+.id{
+    height: 32px;
+    width: 100%;
+    margin-top: 9px;
+    margin-bottom: 31px;
+    padding: 15px 36px 0px 30px;
+    vertical-align: middle;
+}
+
+.id img{
+    height: 32px;
+    float: left;
+    border-radius: 50%;
+    border: solid 2px rgba(255, 255, 255, 30%);
+    margin-right: 15px;
+}
+
+h1, h2{
+    padding-top: 1px;
+}
+
+h1{
+    font-size: 13px;
+    color: rgba(255, 255, 255, 70%);
+}
+
+h2{
+    font-size: 11px;
+    color: rgba(255, 255, 255, 30%);
+}
+
+/* flexbox is used to justify the two p in a define heigth of the div */
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px 33px 17px 32px;
+}
+  
+section p:first-of-type{
+    font-size: 20px;
+    letter-spacing: .007rem;
+    color: rgba(255, 255, 255, 90%);
+    line-height: normal;
+    margin-bottom: 16px;
+    margin-right: 0px;
+}
+
+p{
+    color: rgba(255, 255, 255, 30%);
+    line-height: 1.4;
+    flex: 1 1 100%;
+    margin: 0 15px 15px 0;
+}
+ 
+
+
+/*
+** position in the grid column
+** background color
+** text color
+*/
+
+/* Define grid-column by id to be able to change it in large screen */
+#daniel,
+#jonathan,
+#jeanette,
+#patrick,
+#kira{
+    grid-column: 1;
+}
+
+#daniel{
+    color: var(--color_white);
+    background:     no-repeat
+                    url("../images/bg-pattern-quotation.svg")
+                    var(--color_moderate_violet);
+    background-position: top 0px right 24px;
+}
+
+#jonathan{
+    background-color: var(--color_dark_grayish_blue);
+    color: var(--color_white);
+}
+
+
+#patrick{
+    background-color: var(--color_dark_blackish_blue);
+    color: var(--color_white);
+}
+
+#jeanette, #kira{
+    background-color: var(--color_white);
+    color: var(--color_dark_grayish_blue);
+}
+
+
+/*
+** Color exceptions for white background
+*/
+
+.whiteBG h1{
+    color: rgba(0, 0, 0, 90%);
+}
+
+.whiteBG h2{
+    color: rgba(0, 0, 0, 30%);
+}
+
+.whiteBG  p:first-of-type{
+    color: rgba(0, 0, 0, 70%);
+    font-weight: 600;
+}
+
+.whiteBG  p{
+    color: rgba(0, 0, 0, 50%);
+}
+
+.whiteBG .text{
+    padding: 0px 32px 17px 32px;
+}
+
+.whiteBG {
+    box-shadow: rgba(149, 157, 165, 0.2) 20px 20px 10px -15px;
+}
+
+/*
+** @media is use for large screen
+*/
+
+@media (min-width: 850px) {
+
+        .grid{
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 282px 265px;
+            margin: auto;
+            width: 1111px;
+            height: 572px;
+            /* center the grid container on the screen : https://www.youtube.com/watch?v=HOM47v73yG8&t=217s */
+            position: fixed;
+            inset: 0;
+            margin: auto;
+        }
+
+        section p:first-of-type{
+            margin-bottom: 0px;
+            margin-right: 0px;
+        }
+
+        p{
+            margin: 0px;
+         }
+         
+       
+                
+        #daniel{
+            grid-column: 1 / 3;
+            grid-row: 1;
+            background-position: top 0px right 80px;
+        }
+
+        #jonathan{
+            grid-column: 3;
+            grid-row: 1;
+        }
+
+        #jeanette{
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        #patrick{
+            grid-column: 2 / 4;
+            grid-row: 2;
+        }
+
+        #kira{
+            grid-column: 4;
+            grid-row: 1 / 3;
+        }
+
+        /*
+        ** height of flexbox depending of the row or column
+        ** WHY THE HELLL ARE YOU DOING THAT FRONTEND MENTOR
+        ** all could have been so easy with the same % height for all flexbox
+        */
+
+        .firstRow{
+            height: 196px;
+        }
+
+        .secondRow{
+            height: 209px;
+        }
+
+        .onlyColumn{
+            height: 491px;
+        }
+
+
+  }
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
